@@ -1,0 +1,6 @@
+[submodule "multibuild"]
+	path = multibuild
+	url = https://github.com/matthew-brett/multibuild.git
+[submodule "ad3"]
+	path = ad3
+	url = https://github.com/vene/ad3
