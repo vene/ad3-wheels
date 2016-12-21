@@ -11,7 +11,7 @@ environment:
     CMD_IN_ENV: "cmd /E:ON /V:ON /C ..\\appveyor\\run_with_env.cmd"
     WHEELHOUSE_UPLOADER_USERNAME: vene
     WHEELHOUSE_UPLOADER_SECRET:
-      secure: "bnjOqDxOScjSHwV40s6E0hGmJTSHG97q5mpLjq71KRL6DwbeWItufxbYQxD8sTMS2OQBMBozGwcYdx0xYk15imBlmQvl3l2DbDjeXRcBISYdyI+PO7yChr0W+il+wfySzLKXOLNw0vPt+IevIzBq4Eag94shB0bRwiq8S8/Oww6ZMF0wc30gDO5qUF/P8ovRmtCHmqa5QcPNHHbF3gagixkc6caRnTXk3uNCMJyf59KCcLSEjcRNsExYvZGfQ+Z/jr3q8waytjT2/dxjzV/kTNyFrkqCWb3oJH7Tl7wBta31FRKvTOwjnjCAxQzBAgS3P0hl35m3efgvSkjvWiCLdqbenZvWrCLh5HG9lVwBVP8ZgXfx1x23ZLuSfLmxvJlesGX/pvwEv5i6DGtguqpxjB7rE+I4W5iC/qG/y7S5bFQdNq/V2M1Ihg3Y5BjlPVqLGxcuV25FDRI40UgFFvAJgJdN8IF1NOgEtit831ccwt8dg8hSgsUtbEEzwNlmpGepVymhzgZOPO3RkIyGZ0S1dsO1c3+foMNcLYAWKKylbdRb+VLoRTdD6ciShbSsFWWLblSQTMqGChzMzkJjPZzytq/l/lAuYddJDRoNkX6eiCWCT7Wy4TuAVtcndX2NUgfDLC6hjbVMiG1Oca79p1MZHAhsL5cSvjdfLgfTYtN/X7w="
+      secure: "D3vZ4SzG0rGZ9JeUFpSrLwNSALnmhzmtBIvl/dkCUuJBT6iyaoWhDcETNkH30Zs0"
 
     # Make sure we don't download large datasets when running the test on
     # continuous integration platform
