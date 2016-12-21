@@ -9,9 +9,9 @@ environment:
     # /E:ON and /V:ON options are not enabled in the batch script interpreter
     # See: http://stackoverflow.com/a/13751649/163740
     CMD_IN_ENV: "cmd /E:ON /V:ON /C ..\\appveyor\\run_with_env.cmd"
-#    WHEELHOUSE_UPLOADER_USERNAME: sklearn-appveyor
-#    WHEELHOUSE_UPLOADER_SECRET:
-#      secure: "todo"
+    WHEELHOUSE_UPLOADER_USERNAME: vene
+    WHEELHOUSE_UPLOADER_SECRET:
+      secure: "bnjOqDxOScjSHwV40s6E0hGmJTSHG97q5mpLjq71KRL6DwbeWItufxbYQxD8sTMS2OQBMBozGwcYdx0xYk15imBlmQvl3l2DbDjeXRcBISYdyI+PO7yChr0W+il+wfySzLKXOLNw0vPt+IevIzBq4Eag94shB0bRwiq8S8/Oww6ZMF0wc30gDO5qUF/P8ovRmtCHmqa5QcPNHHbF3gagixkc6caRnTXk3uNCMJyf59KCcLSEjcRNsExYvZGfQ+Z/jr3q8waytjT2/dxjzV/kTNyFrkqCWb3oJH7Tl7wBta31FRKvTOwjnjCAxQzBAgS3P0hl35m3efgvSkjvWiCLdqbenZvWrCLh5HG9lVwBVP8ZgXfx1x23ZLuSfLmxvJlesGX/pvwEv5i6DGtguqpxjB7rE+I4W5iC/qG/y7S5bFQdNq/V2M1Ihg3Y5BjlPVqLGxcuV25FDRI40UgFFvAJgJdN8IF1NOgEtit831ccwt8dg8hSgsUtbEEzwNlmpGepVymhzgZOPO3RkIyGZ0S1dsO1c3+foMNcLYAWKKylbdRb+VLoRTdD6ciShbSsFWWLblSQTMqGChzMzkJjPZzytq/l/lAuYddJDRoNkX6eiCWCT7Wy4TuAVtcndX2NUgfDLC6hjbVMiG1Oca79p1MZHAhsL5cSvjdfLgfTYtN/X7w="
 
     # Make sure we don't download large datasets when running the test on
     # continuous integration platform
@@ -78,7 +78,7 @@ test_script:
   - "mkdir empty_folder"
   - "cd empty_folder"
 
-  - "python -c \"import nose; nose.main()\" s -v ad3"
+  - "python -c \"import nose; nose.main()\" -s -v ad3"
 
   # Move back to the project folder
   - "cd .."
@@ -87,11 +87,11 @@ artifacts:
   # Archive the generated wheel package in the ci.appveyor.com build report.
   - path: dist\*
 
-#on_success:
-#  # Upload the generated wheel package to Rackspace
-#  # On Windows, Apache Libcloud cannot find a standard CA cert bundle so we
-#  # disable the ssl checks.
-#  - "python -m wheelhouse_uploader upload --no-update-index --no-ssl-check --local-folder=dist wheels"
+on_success:
+  # Upload the generated wheel package to Rackspace
+  # On Windows, Apache Libcloud cannot find a standard CA cert bundle so we
+  # disable the ssl checks.
+  - "python -m wheelhouse_uploader upload --no-update-index --no-ssl-check --local-folder=dist wheels"
 
 cache:
   # Use the appveyor cache to avoid re-downloading large archives such

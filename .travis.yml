@@ -11,7 +11,7 @@ env:
         - TEST_DEPENDS="nose numpy"
         - PLAT=x86_64
         - UNICODE_WIDTH=32
-        - WHEELHOUSE_UPLOADER_USERNAME=travis-worker
+        - WHEELHOUSE_UPLOADER_USERNAME=vene
         # Following generated with
         # travis encrypt -r your-org/your-project-wheels WHEELHOUSE_UPLOADER_SECRET=<the api key>
         # This is for Rackspace uploads.  Contact Matthew Brett, or the
@@ -33,13 +33,6 @@ matrix:
     # Exclude the default Python 3.5 build
     - python: 3.5
   include:
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=2.6
-    - os: linux
-      env:
-        - MB_PYTHON_VERSION=2.6
-        - PLAT=i686
     - os: linux
       env: MB_PYTHON_VERSION=2.7
     - os: linux
@@ -102,13 +95,13 @@ install:
 script:
     - install_run $PLAT
 
-#after_success:
-#    # Upload wheels to Rackspace container
-#    - pip install wheelhouse-uploader
-#    # This uploads the wheels to a Rackspace container owned by the
-#    # scikit-learn team, available at http://wheels.scipy.org.  See above
-#    # for information on using this account or choosing another.
-#    - python -m wheelhouse_uploader upload --local-folder
-#        ${TRAVIS_BUILD_DIR}/wheelhouse/
-#        --no-update-index
-#        wheels
+after_success:
+    # Upload wheels to Rackspace container
+    - pip install wheelhouse-uploader
+    # This uploads the wheels to a Rackspace container owned by the
+    # scikit-learn team, available at http://wheels.scipy.org.  See above
+    # for information on using this account or choosing another.
+    - python -m wheelhouse_uploader upload --local-folder
+        ${TRAVIS_BUILD_DIR}/wheelhouse/
+        --no-update-index
+        wheels
