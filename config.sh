@@ -14,3 +14,4 @@ function run_tests {
     if [ -n "$IS_OSX" ]; then  # Run 32-bit tests on dual arch wheel
         arch -i386 nosetests --exe -v ad3
     fi
+}
