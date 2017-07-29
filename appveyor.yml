@@ -4,7 +4,7 @@
 
 environment:
   global:
-    BUILD_COMMIT: ccbd194d36086914f083b9befe685cf9a04a47cc
+    BUILD_COMMIT: 39efc621f4cd384227793dd90b2890e0af0c8305 
     # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
     # /E:ON and /V:ON options are not enabled in the batch script interpreter
     # See: http://stackoverflow.com/a/13751649/163740
@@ -34,11 +34,19 @@ environment:
       PYTHON_ARCH: "64"
 
     - PYTHON: "C:\\Python35"
-      PYTHON_VERSION: "3.5.2"
+      PYTHON_VERSION: "3.5.3"
       PYTHON_ARCH: "32"
 
     - PYTHON: "C:\\Python35-x64"
-      PYTHON_VERSION: "3.5.2"
+      PYTHON_VERSION: "3.5.3"
+      PYTHON_ARCH: "64"
+
+    - PYTHON: "C:\\Python36"
+      PYTHON_VERSION: "3.6.1"
+      PYTHON_ARCH: "32"
+
+    - PYTHON: "C:\\Python36-x64"
+      PYTHON_VERSION: "3.6.1"
       PYTHON_ARCH: "64"
 
 
@@ -78,7 +86,7 @@ test_script:
   - "mkdir empty_folder"
   - "cd empty_folder"
 
-  - "python -c \"import nose; nose.main()\" -s -v ad3"
+  - "pytest -vs --pyargs ad3"
 
   # Move back to the project folder
   - "cd .."

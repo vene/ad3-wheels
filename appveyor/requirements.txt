@@ -8,6 +8,6 @@
 # of the rackspace folder instead of trying to install from more recent
 # source tarball published on PyPI
 numpy==1.9.3
-nose
+pytest
 wheel
 wheelhouse_uploader
