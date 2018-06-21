@@ -97,9 +97,8 @@ artifacts:
 
 on_success:
   # Upload the generated wheel package to Rackspace
-  # On Windows, Apache Libcloud cannot find a standard CA cert bundle so we
-  # disable the ssl checks.
-  - "python -m wheelhouse_uploader upload --no-update-index --no-ssl-check --local-folder=dist wheels"
+  - "pip install certifi"
+  - "python -m wheelhouse_uploader upload --no-update-index --local-folder=dist wheels"
 
 cache:
   # Use the appveyor cache to avoid re-downloading large archives such

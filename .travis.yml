@@ -88,6 +88,11 @@ matrix:
         - MB_PYTHON_VERSION=3.6
 
 before_install:
+    - >
+        echo "$TRAVIS_COMMIT_MESSAGE"
+        | grep -E '\[(skip travis|travis skip)\]'
+        && echo "Skipping travis due to commit message."
+        && exit 0
     - source multibuild/common_utils.sh
     - source multibuild/travis_steps.sh
     - before_install
