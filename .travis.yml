@@ -2,7 +2,7 @@ env:
     global:
         - REPO_DIR=ad3
         # Commit from your-project that you want to build
-        - BUILD_COMMIT=2.2
+        - BUILD_COMMIT=2.2.1
         # pip dependencies to _build_ your project
         - BUILD_DEPENDS=""
         # pip dependencies to _test_ your project.  Include any dependencies
@@ -70,6 +70,13 @@ matrix:
         - MB_PYTHON_VERSION=3.6
         - PLAT=i686
     - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.7
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.7
+        - PLAT=i686
+    - os: linux
     - os: osx
       language: generic
       env:
@@ -86,6 +93,10 @@ matrix:
       language: generic
       env:
         - MB_PYTHON_VERSION=3.6
+    - os: osx
+      language: generic
+      env:
+        - MB_PYTHON_VERSION=3.7
 
 before_install:
     - >
